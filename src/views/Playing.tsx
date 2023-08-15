@@ -4,7 +4,8 @@ import colorsData from "../colors";
 import { Colors } from "../types";
 
 export default function Playing() {
-  const { setStatus, time, setTime, score, setScore } = useGameContext();
+  const { setStatus, time, setTime, score, setScore, counter, setCounter } =
+    useGameContext();
 
   const [color, setColor] = useState<Colors>(colorsData[0]);
   const [wrongColor, setWrongColor] = useState<Colors>(colorsData[1]);
@@ -19,10 +20,20 @@ export default function Playing() {
 
     if (clickedColorName === color.name) {
       setScore(score + 1);
+      setCounter(counter + 1);
+      setTime(time - 10);
     } else {
       setScore(score);
+      setCounter(counter + 1);
+      setTime(time - 10);
     }
   }
+
+  useEffect(() => {
+    if (time === 0) {
+      setStatus("finished");
+    }
+  }, [time]);
 
   return (
     <>
