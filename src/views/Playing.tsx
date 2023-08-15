@@ -21,18 +21,22 @@ export default function Playing() {
     if (clickedColorName === color.name) {
       setScore(score + 1);
       setCounter(counter + 1);
-      setTime(time - 10);
     } else {
       setScore(score);
       setCounter(counter + 1);
-      setTime(time - 10);
     }
   }
 
   useEffect(() => {
-    if (time === 0) {
-      setStatus("finished");
-    }
+    const timer = setTimeout(() => {
+      if (time > 0) {
+        setTime(time - 1);
+      } else {
+        setStatus("finished");
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, [time]);
 
   return (
@@ -51,7 +55,7 @@ export default function Playing() {
               gap: 8,
             }}
           >
-            <p style={{ fontSize: 40, color: wrongColor.color }}>
+            <p style={{ fontSize: 30, color: wrongColor.color }}>
               {color.name.toUpperCase()}
             </p>
             <div
