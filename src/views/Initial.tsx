@@ -1,4 +1,3 @@
-import React from "react";
 import { useGameContext } from "../GameContext";
 
 export default function Initial() {

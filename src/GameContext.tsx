@@ -30,7 +30,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (status === "playing") {
-      if (time > 0) {
+        if (time > 0) {
         const timeout = setTimeout(() => setTime(time - 1), 1000);
         return () => clearTimeout(timeout);
       }

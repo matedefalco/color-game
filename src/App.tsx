@@ -4,8 +4,7 @@ import Playing from "./views/Playing";
 import Initial from "./views/Initial";
 
 function App() {
-  const { status, setStatus, time, setTime, score, setScore } =
-    useGameContext();
+  const { status } = useGameContext();
 
   return (
     <main>
