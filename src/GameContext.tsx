@@ -1,15 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-
-interface GameContextData {
-  status: "initial" | "playing" | "finished";
-  setStatus: React.Dispatch<
-    React.SetStateAction<"initial" | "playing" | "finished">
-  >;
-  time: number;
-  setTime: React.Dispatch<React.SetStateAction<number>>;
-  score: number;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-}
+import { Colors, GameContextData } from "./types";
 
 const GameContext = createContext<GameContextData | undefined>(undefined);
 
@@ -27,10 +17,11 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   );
   const [time, setTime] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
+  const [color, setColor] = useState<Colors>(null);
 
   useEffect(() => {
     if (status === "playing") {
-        if (time > 0) {
+      if (time > 0) {
         const timeout = setTimeout(() => setTime(time - 1), 1000);
         return () => clearTimeout(timeout);
       }
@@ -44,6 +35,8 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     setTime,
     score,
     setScore,
+    color,
+    setColor,
   };
 
   return (
