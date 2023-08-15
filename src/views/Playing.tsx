@@ -8,7 +8,8 @@ export default function Playing() {
   // Generar un índice aleatorio para seleccionar uno de los colores disponibles
   const randomIndex = Math.floor(Math.random() * color.length);
   const randomColor = color[randomIndex];
-
+  const wrongIndex = (randomIndex + 1) % color.length;
+  const wrongColor = color[wrongIndex];
 
   return (
     <>
@@ -25,12 +26,25 @@ export default function Playing() {
           </div>
           {/* COLOR OPTIONS */}
           <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>
-            <button style={{ width: 128, height: 128 }}>
-              {color[0].name.toUpperCase()}
-            </button>
-            <button style={{ width: 128, height: 128 }}>
-              {color[1].name.toUpperCase()}
-            </button>
+            {Math.random() < 0.5 ? (
+              <>
+                <button style={{ width: 128, height: 128 }}>
+                  {randomColor.name.toUpperCase()}
+                </button>
+                <button style={{ width: 128, height: 128 }}>
+                  {wrongColor.name.toUpperCase()}
+                </button>
+              </>
+            ) : (
+              <>
+                <button style={{ width: 128, height: 128 }}>
+                  {wrongColor.name.toUpperCase()}
+                </button>
+                <button style={{ width: 128, height: 128 }}>
+                  {randomColor.name.toUpperCase()}
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}
