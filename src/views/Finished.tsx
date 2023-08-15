@@ -7,7 +7,7 @@ export default function Finished() {
     <div className="container">
       <header />
       <div className="flex">
-        <h1 style={{ color: "white" }}>THE COLOR GAME</h1>
+        <h1 style={{ color: "white", fontSize: "32px" }}>THE COLOR GAME</h1>
         <div
           style={{
             display: "flex",
