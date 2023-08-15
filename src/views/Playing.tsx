@@ -29,9 +29,16 @@ export default function Playing() {
       {colorsData.length !== 0 && (
         <div className="container">
           {/* HEADER */}
-          <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>
-            <div>{time}</div>
-            <div>{score}</div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 8,
+              marginBottom: 16,
+            }}
+          >
+            <p>{time}</p>
+            <p>{score}</p>
           </div>
           {/* COLOR NAME */}
           <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>

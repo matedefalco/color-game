@@ -5,6 +5,7 @@ export default function Finished() {
 
   return (
     <div className="container">
+      <header />
       <button
         onClick={() => {
           setStatus("playing");
@@ -13,6 +14,7 @@ export default function Finished() {
       >
         Reset
       </button>
+      <footer />
     </div>
   );
 }

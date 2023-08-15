@@ -11,7 +11,9 @@ export default function Initial() {
 
   return (
     <div className="container">
+      <header />
       <button onClick={handlePlay}>Play</button>
+      <footer />
     </div>
   );
 }

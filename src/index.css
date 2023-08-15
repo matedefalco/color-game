@@ -55,8 +55,9 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: "space-between";
+  justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 
 h1 {
