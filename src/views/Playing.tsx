@@ -1,5 +1,5 @@
-import React from "react";
 import { useGameContext } from "../GameContext";
+import Colors from "../colors";
 
 export default function Playing() {
   const { status, setStatus, time, setTime, score, setScore } =
