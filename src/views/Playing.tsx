@@ -21,18 +21,22 @@ export default function Playing() {
     if (clickedColorName === color.name) {
       setScore(score + 1);
       setCounter(counter + 1);
-      setTime(time - 10);
     } else {
       setScore(score);
       setCounter(counter + 1);
-      setTime(time - 10);
     }
   }
 
   useEffect(() => {
-    if (time === 0) {
-      setStatus("finished");
-    }
+    const timer = setTimeout(() => {
+      if (time > 0) {
+        setTime(time - 1);
+      } else {
+        setStatus("finished");
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, [time]);
 
   return (
@@ -40,22 +44,23 @@ export default function Playing() {
       {colorsData.length !== 0 && (
         <div className="container">
           {/* HEADER */}
+          <div></div>
+          {/* COLOR NAME */}
           <div
+            className="circleBox"
             style={{
               display: "flex",
               flexDirection: "column",
+              alignItems: "center",
               gap: 8,
-              marginBottom: 16,
+              color: "black",
             }}
           >
             <p>{time}</p>
-            <p>{score}</p>
-          </div>
-          {/* COLOR NAME */}
-          <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>
-            <p style={{ fontSize: 40, color: wrongColor.color }}>
+            <p style={{ fontSize: 30, color: wrongColor.color }}>
               {color.name.toUpperCase()}
             </p>
+            <p style={{ fontSize: 24 }}>{score} pts</p>
           </div>
           {/* COLOR OPTIONS */}
           <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>

@@ -5,8 +5,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +24,30 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ff0000 16.666%,
+    #ff9900 16.666%,
+    #ff9900 33.333%,
+    #33cc33 33.333%,
+    #33cc33 50%,
+    #3399ff 50%,
+    #3399ff 66.666%,
+    #9933cc 66.666%,
+    #9933cc 83.333%,
+    #ff3366 83.333%
+  );
+  background-size: 240% 240%;
+  animation: gradient 10s infinite linear;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 main {
@@ -75,6 +97,49 @@ footer {
 h1 {
   font-size: 1.5em;
   line-height: 1.1;
+  color: transparent; /* Texto con color transparente */
+  -webkit-background-clip: text; /* Aplicar fondo solo en el texto */
+}
+
+footer {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+footer > ul {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circleBox {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 4px solid black;
+  background-color: white;
+}
+
+.references {
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 50px;
+  height: 50px;
+}
+
+.references img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 button {
@@ -91,7 +156,6 @@ button {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
   }
   a:hover {
     color: #747bff;

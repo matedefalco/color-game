@@ -2,12 +2,22 @@ import { useGameContext } from "../GameContext";
 
 export default function Finished() {
   const { setStatus, setTime, counter, score } = useGameContext();
+  console.log("Suka ~ file: Finished.tsx:5 ~ counter:", counter);
+  console.log("Suka ~ file: Finished.tsx:5 ~ score:", score);
 
   return (
     <div className="container">
       <header />
       <div className="flex">
-        <h1 style={{ color: "white" }}>THE COLOR GAME</h1>
+        <h1
+          style={{
+            color: "white",
+            fontSize: "32px",
+            textDecoration: "underline",
+          }}
+        >
+          THE COLOR GAME
+        </h1>
         <div
           style={{
             display: "flex",
@@ -15,14 +25,14 @@ export default function Finished() {
             alignItems: "center",
           }}
         >
-          <h3>YOUR SCORE:</h3>
+          <h3>YOUR SCORE</h3>
           <p
             style={{
               fontSize: "32px",
               color: "white",
             }}
           >
-            {Math.floor(score / counter)}%
+            {Math.floor((score * 100) / counter)}%
           </p>
         </div>
         <button
