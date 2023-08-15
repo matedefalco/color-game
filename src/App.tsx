@@ -8,13 +8,11 @@ function App() {
 
   return (
     <main>
-      <header></header>
       <section>
         {status === "initial" && <Initial />}
         {status === "playing" && <Playing />}
         {status === "finished" && <Finished />}
       </section>
-      <footer></footer>
     </main>
   );
 }
