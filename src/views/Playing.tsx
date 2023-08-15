@@ -53,23 +53,14 @@ export default function Playing() {
               flexDirection: "column",
               alignItems: "center",
               gap: 8,
+              color: "black",
             }}
           >
+            <p>{time}</p>
             <p style={{ fontSize: 30, color: wrongColor.color }}>
               {color.name.toUpperCase()}
             </p>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 8,
-                marginBottom: 16,
-              }}
-            >
-              <p>{time}</p>
-              <p style={{ fontSize: 24 }}>{score} pts</p>
-            </div>
+            <p style={{ fontSize: 24 }}>{score} pts</p>
           </div>
           {/* COLOR OPTIONS */}
           <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>

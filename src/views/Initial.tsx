@@ -23,7 +23,7 @@ export default function Initial() {
         <button onClick={handlePlay}>Play</button>
       </div>
       <footer>
-        <p className="text-sm">Made with:</p>
+        <p>Made with:</p>
         <ul>
           {imgUrls.map((url, index) => (
             <li className="references" key={index}>
