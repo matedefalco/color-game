@@ -19,7 +19,6 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   );
   const [time, setTime] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
-  const [color, setColor] = useState<Colors[]>([]);
 
   const contextValue: GameContextData = {
     status,
@@ -28,8 +27,6 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     setTime,
     score,
     setScore,
-    color,
-    setColor,
   };
 
   return (

@@ -10,8 +10,6 @@ export interface GameContextData {
   >;
   time: number;
   setTime: React.Dispatch<React.SetStateAction<number>>;
-  color: Colors[];
-  setColor: React.Dispatch<React.SetStateAction<Colors[]>>;
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
 }
