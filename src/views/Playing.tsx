@@ -40,22 +40,32 @@ export default function Playing() {
       {colorsData.length !== 0 && (
         <div className="container">
           {/* HEADER */}
+          <div></div>
+          {/* COLOR NAME */}
           <div
+            className="circleBox"
             style={{
               display: "flex",
               flexDirection: "column",
+              alignItems: "center",
               gap: 8,
-              marginBottom: 16,
             }}
           >
-            <p>{time}</p>
-            <p>{score}</p>
-          </div>
-          {/* COLOR NAME */}
-          <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>
             <p style={{ fontSize: 40, color: wrongColor.color }}>
               {color.name.toUpperCase()}
             </p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 8,
+                marginBottom: 16,
+              }}
+            >
+              <p>{time}</p>
+              <p style={{ fontSize: 24 }}>{score} pts</p>
+            </div>
           </div>
           {/* COLOR OPTIONS */}
           <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>

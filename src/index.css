@@ -92,6 +92,16 @@ footer > ul {
   gap: 8px;
 }
 
+.circleBox {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
 .references {
   list-style: none;
   justify-content: center;
