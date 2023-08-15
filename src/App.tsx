@@ -1,39 +1,18 @@
-import { useEffect, useState } from "react";
+import { useGameContext } from "./GameContext";
+import Finished from "./views/Finished";
+import Playing from "./views/Playing";
+import Initial from "./views/Initial";
 
 function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [time, setTime] = useState(0);
-  const [score, setScore] = useState(0);
-
-  useEffect(() => {
-    if (time > 0) {
-      const timeout = setTimeout(() => setTime(time - 1), 1000);
-      return () => clearTimeout(timeout);
-    }
-  }, [time]);
+  const { status } = useGameContext();
 
   return (
     <main>
-      <header></header>
       <section>
-        {!isPlaying && (
-          <button
-            onClick={() => {
-              setIsPlaying(true);
-              setTime(60);
-            }}
-          >
-            Jugar
-          </button>
-        )}
-        {isPlaying && (
-          <div className="container">
-            <div>{time}</div>
-            <div>{score}</div>
-          </div>
-        )}
+        {status === "initial" && <Initial />}
+        {status === "playing" && <Playing />}
+        {status === "finished" && <Finished />}
       </section>
-      <footer></footer>
     </main>
   );
 }
