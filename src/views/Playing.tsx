@@ -35,20 +35,32 @@ export default function Playing() {
           </div>
           {/* COLOR NAME */}
           <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>
-            <p style={{ fontSize: 40 }}>{color.name.toUpperCase()}</p>
+            <p style={{ fontSize: 40, color: wrongColor.color }}>
+              {color.name.toUpperCase()}
+            </p>
           </div>
           {/* COLOR OPTIONS */}
           <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>
             {Math.random() < 0.5 ? (
               <>
                 <button
-                  style={{ width: 128, height: 128 }}
+                  style={{
+                    width: 128,
+                    height: 128,
+                    backgroundColor: color.color,
+                    color: wrongColor.color,
+                  }}
                   onClick={() => handleClick(color.name)}
                 >
                   {color.name.toUpperCase()}
                 </button>
                 <button
-                  style={{ width: 128, height: 128 }}
+                  style={{
+                    width: 128,
+                    height: 128,
+                    backgroundColor: wrongColor.color,
+                    color: color.color,
+                  }}
                   onClick={() => handleClick(wrongColor.name)}
                 >
                   {wrongColor.name.toUpperCase()}
@@ -57,13 +69,23 @@ export default function Playing() {
             ) : (
               <>
                 <button
-                  style={{ width: 128, height: 128 }}
+                  style={{
+                    width: 128,
+                    height: 128,
+                    backgroundColor: wrongColor.color,
+                    color: color.color,
+                  }}
                   onClick={() => handleClick(wrongColor.name)}
                 >
                   {wrongColor.name.toUpperCase()}
                 </button>
                 <button
-                  style={{ width: 128, height: 128 }}
+                  style={{
+                    width: 128,
+                    height: 128,
+                    backgroundColor: color.color,
+                    color: wrongColor.color,
+                  }}
                   onClick={() => handleClick(color.name)}
                 >
                   {color.name.toUpperCase()}
