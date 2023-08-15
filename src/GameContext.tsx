@@ -17,7 +17,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   );
   const [time, setTime] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
-  const [color, setColor] = useState<Colors>(null);
+  const [color, setColor] = useState<Colors[]>([]);
 
   useEffect(() => {
     if (status === "playing") {
