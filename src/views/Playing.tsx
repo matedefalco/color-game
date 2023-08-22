@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { useGameContext } from "../GameContext";
+import {useState} from "react";
+
+import {useGameContext} from "../GameContext";
 import colorsData from "../colors";
-import { Colors } from "../types";
+import {Colors} from "../types";
 
 export default function Playing() {
-  const { setStatus, time, setTime, score, setScore, counter, setCounter } =
-    useGameContext();
+  const {setStatus, time, setTime, score, setScore, counter, setCounter} = useGameContext();
 
   const [color, setColor] = useState<Colors>(colorsData[0]);
   const [wrongColor, setWrongColor] = useState<Colors>(colorsData[1]);
+  const [order, setOrder] = useState<number>(0);
 
   function handleClick(clickedColorName: string) {
-    const [selectedColor, selectedWrongColor] = colorsData
-      .slice()
-      .sort(() => Math.random() - 0.5);
+    const [selectedColor, selectedWrongColor] = colorsData.slice().sort(() => Math.random() - 0.5);
 
     setColor(selectedColor);
     setWrongColor(selectedWrongColor);
+
+    setOrder(Math.random());
 
     if (clickedColorName === color.name) {
       setScore(score + 1);
@@ -27,24 +28,21 @@ export default function Playing() {
     }
   }
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (time > 0) {
-        setTime(time - 1);
-      } else {
-        setStatus("finished");
-      }
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [time]);
+  const timer = setTimeout(() => {
+    if (time > 0) {
+      setTime(time - 1);
+    } else {
+      setStatus("finished");
+      clearTimeout(timer);
+    }
+  }, 1000);
 
   return (
     <>
       {colorsData.length !== 0 && (
         <div className="container">
           {/* HEADER */}
-          <div></div>
+          <div />
           {/* COLOR NAME */}
           <div
             className="circleBox"
@@ -57,14 +55,12 @@ export default function Playing() {
             }}
           >
             <p>{time}</p>
-            <p style={{ fontSize: 30, color: wrongColor.color }}>
-              {color.name.toUpperCase()}
-            </p>
-            <p style={{ fontSize: 24 }}>{score} pts</p>
+            <p style={{fontSize: 30, color: wrongColor.color}}>{color.name.toUpperCase()}</p>
+            <p style={{fontSize: 24}}>{score} pts</p>
           </div>
           {/* COLOR OPTIONS */}
-          <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>
-            {Math.random() < 0.5 ? (
+          <div style={{display: "flex", flexDirection: "row", gap: 8}}>
+            {order < 0.5 ? (
               <>
                 <button
                   style={{
