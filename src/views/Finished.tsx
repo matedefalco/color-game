@@ -1,9 +1,11 @@
 import { useGameContext } from "../GameContext";
 
 export default function Finished() {
-  const { setStatus, setTime, counter, score } = useGameContext();
-  console.log("Suka ~ file: Finished.tsx:5 ~ counter:", counter);
-  console.log("Suka ~ file: Finished.tsx:5 ~ score:", score);
+  const { setStatus, setTime, counter, score, maxScore, setMaxScore } = useGameContext();
+
+  if (score > maxScore) {
+    setMaxScore(score);
+  }
 
   return (
     <div className="container">
@@ -32,8 +34,32 @@ export default function Finished() {
               color: "white",
             }}
           >
-            {Math.floor((score * 100) / counter)}%
+            {score}
           </p>
+        </div>
+        <div style={{display: "flex", flexDirection: "column", gap: 1, alignItems: "center"}}>
+          <div style={{display: "flex", gap: 1, alignItems: "center"}}>
+            <p>Success rate:</p>
+            <p
+              style={{
+                color: "white",
+                fontWeight: "bold",
+              }}
+            >
+              {Math.floor((score * 100) / counter)}%
+            </p>
+          </div>
+          <div style={{display: "flex", gap: 1, alignItems: "center"}}>
+            <p>Max score:</p>
+            <p
+              style={{
+                color: "white",
+                fontWeight: "bold",
+              }}
+            >
+              {maxScore}
+            </p>
+          </div>
         </div>
         <button
           style={{

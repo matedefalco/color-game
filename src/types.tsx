@@ -12,6 +12,8 @@ export interface GameContextData {
   setTime: React.Dispatch<React.SetStateAction<number>>;
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
+  maxScore: number;
+  setMaxScore: React.Dispatch<React.SetStateAction<number>>;
   counter: number;
   setCounter: React.Dispatch<React.SetStateAction<number>>;
 }

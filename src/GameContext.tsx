@@ -19,6 +19,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   );
   const [time, setTime] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
+  const [maxScore, setMaxScore] = useState<number>(0);
   const [counter, setCounter] = useState<number>(0);
 
   const contextValue: GameContextData = {
@@ -28,6 +29,8 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     setTime,
     score,
     setScore,
+    maxScore,
+    setMaxScore,
     counter,
     setCounter,
   };
