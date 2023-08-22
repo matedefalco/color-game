@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
-import { Colors, GameContextData } from "./types";
+import React, {createContext, useContext, useState} from "react";
+
+import {GameContextData} from "./types";
 
 const GameContext = createContext<GameContextData | undefined>(undefined);
 
@@ -13,10 +14,8 @@ export function useGameContext() {
   return context;
 }
 
-export function GameProvider({ children }: { children: React.ReactNode }) {
-  const [status, setStatus] = useState<"initial" | "playing" | "finished">(
-    "initial"
-  );
+export function GameProvider({children}: {children: React.ReactNode}) {
+  const [status, setStatus] = useState<"initial" | "playing" | "finished">("initial");
   const [time, setTime] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [maxScore, setMaxScore] = useState<number>(0);
@@ -35,7 +34,5 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     setCounter,
   };
 
-  return (
-    <GameContext.Provider value={contextValue}>{children}</GameContext.Provider>
-  );
+  return <GameContext.Provider value={contextValue}>{children}</GameContext.Provider>;
 }
